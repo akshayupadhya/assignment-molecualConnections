@@ -1,24 +1,23 @@
 <template lang="pug">
-.home(light)
+.home
   //h4 {{l1}}
+  </br>
+  h2 Crop commodities
   v-expansion-panel
-    </br>
-    h2 Crop commodities
     v-expansion-panel-content( v-for="(item,i) in l1" :key="i")
       div( slot="header") {{item.name}}
-      v-card()
-        v-layout( row)
-          v-flex.xs12.sm6.offset-sm3.row
-            .list(v-for="j in nextLevel(item.name)")
-              v-list-tile {{j.name}}
+      .subHeader( slot="subheader") {{item.id}}
+      v-card
+        p.list__tile(v-for="j in nextLevel(item.name)") {{j.name}}
+        
 </template>
 <script>
-
+// import listItem from '../components/listItem.vue'
 export default {
   data () {
     return {
       l1: this.$store.state.level1.children.map((j) => { return { name: j.name, id: j.id } }),
-      l2: this.$store.state.level2.termsrelation.map((j) => {
+      l2: this.$store.state.level1.termsrelation.map((j) => {
         return {
           root: j.rel,
           terms: j.terms.map((k) => {
@@ -48,6 +47,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 h2{
-  padding-top: 20%;
+  padding: 5%;
 }
 </style>
