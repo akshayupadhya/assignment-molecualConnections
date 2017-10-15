@@ -8,8 +8,17 @@
       div( slot="header") {{item.name}}
       .subHeader( slot="subheader") {{item.id}}
       v-card
-        p.list__tile(v-for="j in nextLevel(item.name)") {{j.name}}
-        
+        .view(v-for="j in nextLevel(item.name)")
+          router-link(v-bind:to="link(j)")
+            v-list
+              .list__tile
+                v-list-tile-content 
+                  .list__tile__title {{j.name}}
+                v-list-tile-action
+                  v-btn( icon ripple) 
+                    v-icon send
+
+                
 </template>
 <script>
 // import listItem from '../components/listItem.vue'
@@ -41,6 +50,9 @@ export default {
         return j
       })
       return Arr[0].terms
+    },
+    link (j) {
+      return 'l3/' + j.id.toString()
     }
   }
 }
@@ -48,5 +60,14 @@ export default {
 <style lang="scss" scoped>
 h2{
   padding: 5%;
+}
+  a{
+  text-decoration: none;
+  }
+
+.list__tile__title {
+
+  text-decoration: none;
+  color: #2b2b2b;
 }
 </style>
