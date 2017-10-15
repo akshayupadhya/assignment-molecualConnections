@@ -5,14 +5,15 @@
             v-expansion-panel-content( )
                 div( slot="header") {{j}}
                 v-card
-                    v-list(v-for="k in nextLevel(j)")
+                    .view(v-for="k in nextLevel(j)")
+                      v-list
                         v-card
                             v-list-tile
                                 v-list-tile-content
                                     v-list-tile-title(slot="subheader") {{k.name}}
-                                //- v-list-tile-action
-                                //-     v-btn( icon ripple) 
-                                //-       v-icon send
+                                v-list-tile-action
+                                    v-btn( icon ripple) 
+                                      v-icon info
            
 </template>
 <script>

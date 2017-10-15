@@ -1,9 +1,9 @@
 <template lang="pug">
 .home
   //h4 {{l1}}
-  </br>
-  h2 Crop commodities
-  v-expansion-panel
+  v-expansion-panel.md8.xs11.sm10.lg6
+   </br>
+    h2 Crop commodities
     v-expansion-panel-content( v-for="(item,i) in l1" :key="i")
       div( slot="header") {{item.name}}
       .subHeader( slot="subheader") {{item.id}}
@@ -68,6 +68,6 @@ h2{
 .list__tile__title {
 
   text-decoration: none;
-  color: #2b2b2b;
+  //color: #2b2b2b;
 }
 </style>

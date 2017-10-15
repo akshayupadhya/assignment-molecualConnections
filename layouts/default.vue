@@ -1,5 +1,5 @@
 <template>
-  <v-app light>
+  <v-app dark>
     <v-toolbar fixed app class="blue accent-4">
       <v-toolbar-title>Molecular connections</v-toolbar-title>
     </v-toolbar>
